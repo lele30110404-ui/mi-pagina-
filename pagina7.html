@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Acceso Final 💖</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff4da6,#ff85c1,#ffc2e0);
+    font-family:Georgia, serif;
+    overflow:hidden;
+}
+
+/* Corazones de fondo */
+body::before{
+    content:"💖 💕 💗 💓 💞 💘 💝";
+    position:absolute;
+    font-size:60px;
+    opacity:0.08;
+    width:100%;
+    text-align:center;
+    top:20%;
+}
+
+/* Caja central */
+.container{
+    background:white;
+    padding:60px 40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(0,0,0,0.2);
+    width:90%;
+    max-width:500px;
+}
+
+h1{
+    color:#ff4da6;
+    font-size:28px;
+    margin-bottom:40px;
+}
+
+input{
+    padding:15px;
+    width:80%;
+    border-radius:12px;
+    border:2px solid #ff4da6;
+    font-size:18px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+button{
+    padding:12px 30px;
+    border-radius:12px;
+    border:none;
+    background:#ff4da6;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff1a8c;
+    transform:scale(1.05);
+}
+
+.small-text{
+    margin-top:20px;
+    font-size:14px;
+    color:#999;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔐 El día en que todo comenzó desde cero 💖</h1>
+
+<input type="password" id="finalpass" placeholder="Ingresa la contraseña">
+
+<br>
+
+<button onclick="go()">Entrar 💌</button>
+
+<p class="small-text">Solo quien conoce nuestra historia podrá continuar...</p>
+
+</div>
+
+<script>
+function go(){
+if(document.getElementById("finalpass").value=="03012026"){
+window.location="https://mylove1402.my.canva.site/paginaweb";
+}else{
+alert("❌ Contraseña incorrecta mi amor");
+}
+}
+</script>
+
+</body>
+</html>
