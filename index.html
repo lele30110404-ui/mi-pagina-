@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Acceso Secreto</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(135deg,#ff4da6,#99004d);
+    color:white;
+    text-align:center;
+}
+
+/* CAJA PRINCIPAL */
+.caja{
+    background:rgba(255,255,255,0.1);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+}
+
+/* INPUT */
+input{
+    padding:10px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    text-align:center;
+}
+
+/* BOTON */
+button{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    color:#99004d;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* CODIGO OCULTO (VISIBLE PERO SUTIL) */
+.codigo{
+    position:absolute;
+    bottom:15px;
+    right:20px;
+    font-size:14px;
+    opacity:0.25;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+/* FOOTER */
+footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    font-size:12px;
+    opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="caja">
+    <h2>🔒 Acceso Especial</h2>
+    <p>Pista: Nuestro día especial</p>
+
+    <input type="password" id="clave" placeholder="Ingresa el código">
+    <br>
+    <button onclick="verificar()">Entrar</button>
+</div>
+
+<!-- NUMERO OCULTO -->
+<div class="codigo">0</div>
+
+<footer>
+recuerda buscar el codigo oculto de esta pagina.
+</footer>
+
+<script>
+function verificar(){
+    let clave=document.getElementById("clave").value;
+    if(clave==="01102024"){
+        window.location="pagina2.html";
+    }else{
+        alert("Código incorrecto 💔");
+    }
+}
+</script>
+
+</body>
+</html>

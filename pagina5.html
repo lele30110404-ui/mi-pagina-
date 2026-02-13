@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cápsula del Tiempo</title>
+<style>
+
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+    color:white;
+    text-align:center;
+}
+
+/* TITULO */
+h1{
+    margin-top:40px;
+    font-size:42px;
+}
+
+/* COFRE */
+.cofre{
+    width:220px;
+    height:180px;
+    background:linear-gradient(#5c3d2e,#3e2723);
+    margin:80px auto 20px auto;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.5s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 0 30px rgba(0,0,0,0.6);
+    position:relative;
+}
+
+.cofre::before{
+    content:"";
+    position:absolute;
+    top:-40px;
+    width:220px;
+    height:60px;
+    background:linear-gradient(#6d4c41,#4e342e);
+    border-radius:50% 50% 0 0;
+}
+
+.cofre.abierto{
+    width:550px;
+    height:420px;
+    flex-direction:column;
+}
+
+/* OBJETOS INTERNOS */
+.objetos{
+    display:none;
+    gap:40px;
+    margin-top:60px;
+}
+
+.cofre.abierto .objetos{
+    display:flex;
+}
+
+.objeto{
+    width:90px;
+    height:90px;
+    background:#ffffff22;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.objeto:hover{
+    transform:scale(1.2);
+}
+
+/* BOTON SIGUIENTE */
+.siguiente{
+    margin-top:20px;
+    padding:12px 25px;
+    background:#ffffff22;
+    border:none;
+    border-radius:12px;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* FOOTER */
+footer{
+    margin-top:40px;
+    font-size:14px;
+    opacity:0.8;
+}
+
+/* CODIGO OCULTO */
+.codigo{
+    color:transparent;
+    user-select:none;
+}
+
+/* MODAL GENERAL */
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-content{
+    background:white;
+    color:black;
+    padding:30px;
+    border-radius:20px;
+    width:450px;
+    max-width:90%;
+    animation:zoom 0.3s ease;
+}
+
+@keyframes zoom{
+    from{transform:scale(0.5);}
+    to{transform:scale(1);}
+}
+
+textarea{
+    width:100%;
+    height:120px;
+    margin-top:10px;
+    padding:10px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+}
+
+button{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#333;
+    color:white;
+}
+
+</style>
+</head>
+<body>
+
+<h1>📦 Cápsula del Tiempo</h1>
+
+<div class="cofre" onclick="abrirCofre(this)">
+    <div class="objetos">
+        <div class="objeto" onclick="abrirCarta(event)">💌</div>
+        <div class="objeto" onclick="abrirCassette(event)">📼</div>
+        <div class="objeto" onclick="abrirReloj(event)">⏳</div>
+    </div>
+</div>
+
+<!-- BOTON SIGUIENTE -->
+<button class="siguiente" onclick="window.location.href='pagina6.html'">
+Siguiente →
+</button>
+
+<footer>
+Recuerda guardar el código secreto antes de continuar 🤫
+<span class="codigo">20</span>
+</footer>
+
+<!-- 💌 CARTA -->
+<div class="modal" id="modalCarta">
+<div class="modal-content">
+
+<h2>💌 Dejale un mensaje al Benjamín de 2027</h2>
+
+<form action="https://formspree.io/f/xzdaerqr" method="POST">
+
+<input type="text" name="nombre" placeholder="Tu nombre" required>
+
+<textarea name="mensaje_2027" placeholder="Escribe tu mensaje..." required></textarea>
+
+<button type="submit">Enviar al futuro 💌</button>
+
+</form>
+
+<button onclick="cerrarModal('modalCarta')">Cerrar</button>
+
+</div>
+</div>
+
+<!-- 📼 CASSETTE -->
+<div class="modal" id="modalCassette">
+<div class="modal-content">
+
+<h2>📼 Canción favorita de los dos</h2>
+
+<form action="https://formspree.io/f/xzdaerqr" method="POST">
+
+<input type="text" name="link_musica" placeholder="Pega aquí el link de la canción" required>
+
+<button type="submit">Guardar Canción 🎵</button>
+
+</form>
+
+<button onclick="cerrarModal('modalCassette')">Cerrar</button>
+
+</div>
+</div>
+
+<!-- ⏳ RELOJ (5 METAS) -->
+<div class="modal" id="modalReloj">
+<div class="modal-content">
+
+<h2>⏳ 5 cosas que el Benjamín de 2027 debe lograr</h2>
+
+<form action="https://formspree.io/f/xzdaerqr" method="POST">
+
+<input type="text" name="meta1" placeholder="Meta 1" required>
+<input type="text" name="meta2" placeholder="Meta 2" required>
+<input type="text" name="meta3" placeholder="Meta 3" required>
+<input type="text" name="meta4" placeholder="Meta 4" required>
+<input type="text" name="meta5" placeholder="Meta 5" required>
+
+<button type="submit">Guardar Metas ⏳</button>
+
+</form>
+
+<button onclick="cerrarModal('modalReloj')">Cerrar</button>
+
+</div>
+</div>
+
+<script>
+
+function abrirCofre(element){
+    element.classList.toggle("abierto");
+}
+
+function abrirCarta(e){
+    e.stopPropagation();
+    document.getElementById("modalCarta").style.display="flex";
+}
+
+function abrirCassette(e){
+    e.stopPropagation();
+    document.getElementById("modalCassette").style.display="flex";
+}
+
+function abrirReloj(e){
+    e.stopPropagation();
+    document.getElementById("modalReloj").style.display="flex";
+}
+
+function cerrarModal(id){
+    document.getElementById(id).style.display="none";
+}
+
+</script>
+
+</body>
+</html>
+

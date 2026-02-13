@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Happy Valentine's My Little Bear</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(135deg,#ff4da6,#99004d);
+    color:white;
+}
+
+/* CONTENEDOR CENTRAL */
+.contenedor{
+    max-width:800px;
+    padding:40px;
+}
+
+/* TITULO */
+h1{
+    font-size:50px;
+    margin-bottom:30px;
+    position:relative;
+}
+
+/* NUMERO OCULTO */
+.numero{
+    font-size:18px;
+    opacity:0.3;
+    margin-left:8px;
+}
+
+/* TEXTO */
+p{
+    font-size:22px;
+    line-height:1.6;
+}
+
+/* BOTON */
+.boton{
+    margin-top:30px;
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#99004d;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:white;
+    color:black;
+    padding:30px;
+    max-width:600px;
+    border-radius:20px;
+    text-align:left;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:15px;
+    font-size:16px;
+}
+
+.verificar{
+    margin-top:15px;
+    padding:10px 20px;
+    background:#ff4da6;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    font-size:12px;
+    opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+    <h1>
+        Happy Valentine's My Little Bear 🧸
+        <span class="numero">3</span>
+    </h1>
+
+    <p>
+    Feliz San Valentín mi amor, sé que te dije que no te haría ningún regalo pero realmente no podía pasar este día sin compartir algo contigo aunque sea pequeñito. 
+    Descifra el acertijo para continuar con el juego.
+    </p>
+
+    <button class="boton" onclick="abrirModal()">Dale click aquí</button>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h3>Acertijo</h3>
+        <p>
+        La luna se iba y el sol despertaba, mientras nuestras voces el sueño espantaban.  
+        A través de la línea, un sonido se coló, y mi voz con ternura te lo señaló.  
+
+        No tengo alas, pero contigo vuelo, ese dulce sonido bajó desde el cielo.  
+        Por decir que los oía bajo la luz del día, me bautizaste con ese nombre de fantasía.  
+
+        ¿Cómo me llamas desde aquella mañana?
+        </p>
+
+        <input type="text" id="respuesta" placeholder="Escribe tu respuesta aquí">
+        <button class="verificar" onclick="verificar()">Verificar</button>
+    </div>
+</div>
+
+<footer>
+recuerda buscar el codigo oculto de esta pagina.
+</footer>
+
+<script>
+function abrirModal(){
+    document.getElementById("modal").style.display="flex";
+}
+
+function verificar(){
+    let r=document.getElementById("respuesta").value.toLowerCase().trim();
+    if(r==="pajarita"){
+        window.location="pagina3.html";
+    }else{
+        alert("Respuesta incorrecta 💔 intenta de nuevo.");
+    }
+}
+</script>
+
+</body>
+</html>
